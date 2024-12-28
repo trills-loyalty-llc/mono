@@ -28,3 +28,30 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  integration:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        browser: [edge, chrome, firefox]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+
+      - name: Restore Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run Integration Tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run preview
+          browser: ${{ matrix.browser }}
