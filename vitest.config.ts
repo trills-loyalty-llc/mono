@@ -14,7 +14,7 @@ export default mergeConfig(
         exclude: ["main.tsx", "app/**", "**/*.container.tsx", "vite-env.d.ts"],
       },
       globals: true,
-      setupFiles: ["./src/SetupTests.ts"],
+      setupFiles: ["./setup-tests.ts"],
       exclude: [...configDefaults.exclude],
       environment: "jsdom",
       root: fileURLToPath(new URL("./src", import.meta.url)),
