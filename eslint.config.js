@@ -5,7 +5,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist", "vitest.config.ts"] },
+  { ignores: ["dist", "vitest.config.ts", "cypress.config.ts"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.strictTypeChecked],
     files: ["**/*.{ts,tsx}"],
@@ -17,6 +17,7 @@ export default tseslint.config(
           "./tsconfig.json",
           "./tsconfig.app.json",
           "./tsconfig.node.json",
+          "./cypress/tsconfig.json",
         ],
         tsconfigRootDir: import.meta.dirname,
       },
