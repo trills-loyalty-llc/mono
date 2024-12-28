@@ -17,6 +17,8 @@ export default mergeConfig(
           "**/*.container.tsx",
           "vite-env.d.ts",
           "**/*.test.tsx",
+          "**/*index.*",
+          "**/*.stories.*",
         ],
       },
       globals: true,

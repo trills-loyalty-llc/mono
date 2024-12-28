@@ -6,6 +6,12 @@ import tseslint from "typescript-eslint";
 import unicorn from "eslint-plugin-unicorn";
 import storybook from "eslint-plugin-storybook";
 import prettier from "eslint-plugin-prettier/recommended";
+import testingLibrary from "eslint-plugin-testing-library";
+import jestDom from "eslint-plugin-jest-dom";
+import react from "eslint-plugin-react";
+import sonar from "eslint-plugin-sonarjs";
+import promise from "eslint-plugin-promise";
+import compat from "eslint-plugin-compat";
 
 export default tseslint.config(
   {
@@ -22,6 +28,13 @@ export default tseslint.config(
       js.configs.recommended,
       ...tseslint.configs.strictTypeChecked,
       unicorn.configs["flat/recommended"],
+      sonar.configs.recommended,
+      promise.configs["flat/recommended"],
+      compat.configs["flat/recommended"],
+      react.configs.flat.recommended,
+      react.configs.flat["jsx-runtime"],
+      testingLibrary.configs["flat/react"],
+      jestDom.configs["flat/recommended"],
       prettier,
     ],
     files: ["**/*.{ts,tsx}"],
@@ -36,6 +49,7 @@ export default tseslint.config(
           "./cypress/tsconfig.json",
         ],
         tsconfigRootDir: import.meta.dirname,
+        ...react.configs.flat.recommended.languageOptions,
       },
     },
     plugins: {
@@ -56,6 +70,15 @@ export default tseslint.config(
           },
         },
       ],
+      "@typescript-eslint/explicit-function-return-type": "error",
+      "@typescript-eslint/member-ordering": "error",
+      "no-magic-numbers": "off",
+      "@typescript-eslint/no-magic-numbers": "error",
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
   },
   {
