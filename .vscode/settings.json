@@ -1,5 +1,13 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "tsconfig.json": "tsconfig.*.json, env.d.ts",
+    "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
+    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, ",
+    ".gitignore": ".gitattributes",
+    "eslint*": ".prettier*, prettier*, .editorconfig, .browserslistrc*, .stylelint*"
+  },
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
   "files.autoSaveDelay": 5000,

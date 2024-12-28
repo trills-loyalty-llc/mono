@@ -11,7 +11,13 @@ export default mergeConfig(
         thresholds: {
           branches: 100,
         },
-        exclude: ["main.tsx", "app/**", "**/*.container.tsx", "vite-env.d.ts"],
+        exclude: [
+          "main.tsx",
+          "app/**",
+          "**/*.container.tsx",
+          "vite-env.d.ts",
+          "**/*.test.tsx",
+        ],
       },
       globals: true,
       setupFiles: ["./setup-tests.ts"],
@@ -19,5 +25,5 @@ export default mergeConfig(
       environment: "jsdom",
       root: fileURLToPath(new URL("./src", import.meta.url)),
     },
-  })
+  }),
 );
