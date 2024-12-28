@@ -8,7 +8,12 @@
     "build": "tsc -b && vite build",
     "lint": "npx eslint . --fix --max-warnings 0",
     "preview": "vite preview",
-    "test:unit": "vitest"
+    "test:unit": "vitest",
+    "lint:styles": "npx stylelint ./**/*.scss --fix",
+    "format": "npx prettier . --write",
+    "prepare": "npx husky",
+    "cypress": "npx cypress open",
+    "swagger": "npx swagger-typescript-api -p ./swagger/swagger.json -o ./src/data -n ApiClient.ts --axios"
   },
   "dependencies": {
     "bulma": "^1.0.3",
@@ -28,6 +33,8 @@
     "globals": "^15.14.0",
     "jsdom": "^25.0.1",
     "sass": "^1.83.0",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard": "^36.0.1",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5",
