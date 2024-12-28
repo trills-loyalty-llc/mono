@@ -55,3 +55,32 @@ jobs:
         with:
           start: npm run preview
           browser: ${{ matrix.browser }}
+
+  storybook:
+    name: Storybook
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+
+      - name: Restore Dependencies
+        run: npm ci
+
+      - name: Install PlayWright
+        run: npx playwright install
+
+      - name: Install Serve
+        run: npm install --global serve
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Serve Storybook & Run Tests
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "serve storybook-static -l 3000" \
+            "npx wait-on tcp:3000 && npm run test-storybook -- --browsers firefox chromium --url http://localhost:3000"

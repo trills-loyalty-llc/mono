@@ -3,11 +3,26 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
+import unicorn from "eslint-plugin-unicorn";
+import storybook from "eslint-plugin-storybook";
 
 export default tseslint.config(
-  { ignores: ["dist", "vitest.config.ts", "cypress.config.ts"] },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.strictTypeChecked],
+    ignores: [
+      "dist",
+      "vitest.config.ts",
+      "cypress.config.ts",
+      ".storybook/**",
+      "src/vite-env.d.ts",
+    ],
+  },
+  {
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.strictTypeChecked,
+      unicorn.configs["flat/recommended"],
+      storybook.configs["flat/recommended"],
+    ],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
@@ -31,6 +46,14 @@ export default tseslint.config(
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
+      ],
+      "unicorn/prevent-abbreviations": [
+        "error",
+        {
+          allowList: {
+            e2e: true,
+          },
+        },
       ],
     },
   },
