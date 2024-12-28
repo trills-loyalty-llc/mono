@@ -5,6 +5,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 import unicorn from "eslint-plugin-unicorn";
 import storybook from "eslint-plugin-storybook";
+import prettier from "eslint-plugin-prettier/recommended";
 
 export default tseslint.config(
   {
@@ -21,7 +22,7 @@ export default tseslint.config(
       js.configs.recommended,
       ...tseslint.configs.strictTypeChecked,
       unicorn.configs["flat/recommended"],
-      storybook.configs["flat/recommended"],
+      prettier,
     ],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -56,5 +57,13 @@ export default tseslint.config(
         },
       ],
     },
+  },
+  {
+    extends: [
+      ...storybook.configs["flat/recommended"],
+      {
+        files: ["**/*.stories.*"],
+      },
+    ],
   },
 );
