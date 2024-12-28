@@ -3,10 +3,11 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "tsconfig.json": "tsconfig.*.json, env.d.ts",
-    "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
+    "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*, index.*",
     "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, ",
     ".gitignore": ".gitattributes",
-    "eslint*": ".prettier*, prettier*, .editorconfig, .browserslistrc*, .stylelint*"
+    "eslint*": ".prettier*, prettier*, .editorconfig, .browserslistrc*, .stylelint*",
+    "readme*": "license"
   },
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
