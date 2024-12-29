@@ -1,5 +1,8 @@
 import { RequiredChildrenProperties } from "../../";
 
+/**
+ * A basic element to center content on the viewport.
+ */
 export const Container: React.FC<RequiredChildrenProperties> = ({
   children,
 }: RequiredChildrenProperties) => {

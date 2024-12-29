@@ -3,7 +3,6 @@ import { Container } from "../..";
 
 const meta: Meta<typeof Container> = {
   component: Container,
-  tags: ["autodocs"],
 };
 
 export default meta;
