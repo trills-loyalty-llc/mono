@@ -1,12 +1,30 @@
+import { ButtonType } from "./button-type";
+
 /**
  * A basic button element to allow UI interaction.
  */
 export const Button: React.FC<ButtonProperties> = ({
   content,
   onClickHandler,
+  type = ButtonType.Button,
 }: ButtonProperties) => {
+  const determineType = (): "button" | "submit" => {
+    switch (type) {
+      case ButtonType.Button: {
+        return "button";
+      }
+      case ButtonType.Submit: {
+        return "submit";
+      }
+    }
+  };
+
   return (
-    <button className="button" onClick={onClickHandler}>
+    <button
+      className="button is-secondary"
+      onClick={onClickHandler}
+      type={determineType()}
+    >
       {content}
     </button>
   );
@@ -24,4 +42,9 @@ interface ButtonProperties {
    * @returns void
    */
   onClickHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
+
+  /**
+   * Designates the button type.
+   */
+  type?: ButtonType;
 }

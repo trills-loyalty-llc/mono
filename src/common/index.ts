@@ -1,5 +1,6 @@
 // Elements
 export { Button } from "./elements/button/button";
+export { ButtonType } from "./elements/button/button-type";
 
 // Interfaces
 export type { RequiredChildrenProperties } from "./interfaces/required-children";
