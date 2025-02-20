@@ -52,41 +52,29 @@ export default tseslint.config(
         ...react.configs.flat.recommended.languageOptions,
       },
     },
-    plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
-    },
+    plugins: { "react-hooks": reactHooks, "react-refresh": reactRefresh },
     rules: {
       ...reactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
       ],
-      "unicorn/prevent-abbreviations": [
+      "unicorn/prevent-abbreviations": ["error", { allowList: { e2e: true } }],
+      "unicorn/consistent-function-scoping": [
         "error",
-        {
-          allowList: {
-            e2e: true,
-          },
-        },
+        { checkArrowFunctions: false },
       ],
       "@typescript-eslint/explicit-function-return-type": "error",
       "@typescript-eslint/member-ordering": "error",
       "no-magic-numbers": "off",
       "@typescript-eslint/no-magic-numbers": "error",
     },
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
+    settings: { react: { version: "detect" } },
   },
   {
     extends: [
       ...storybook.configs["flat/recommended"],
-      {
-        files: ["**/*.stories.*"],
-      },
+      { files: ["**/*.stories.*"] },
     ],
   },
 );
