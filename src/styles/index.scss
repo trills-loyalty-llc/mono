@@ -1,22 +1,6 @@
 @charset "utf-8";
-@use "../../node_modules/bulma/sass/utilities/functions";
 
-$purple: #b117e8;
-$orange: #a10a69;
-$secondary: $purple;
-$tertiary: $orange;
+$primary: #4ed091;
+$secondary: #b117e8;
 
-@use "../../node_modules/bulma/sass/utilities/derived-variables" with (
-  $custom-colors: (
-    "tertiary": (
-      $tertiary,
-      bulmaFindColorInvert($tertiary),
-    ),
-    "secondary": (
-      $secondary,
-      bulmaFindColorInvert($secondary),
-    ),
-  )
-);
-
-@use "../../node_modules/bulma/bulma";
+@import "../../node_modules/bootstrap/scss/bootstrap";

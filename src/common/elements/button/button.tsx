@@ -5,6 +5,7 @@ import { ButtonType } from "./button-type";
  */
 export const Button: React.FC<ButtonProperties> = ({
   content,
+  disabled,
   onClickHandler,
   type = ButtonType.Button,
 }: ButtonProperties) => {
@@ -21,7 +22,8 @@ export const Button: React.FC<ButtonProperties> = ({
 
   return (
     <button
-      className="button is-secondary"
+      className="btn btn-primary"
+      disabled={disabled}
       onClick={onClickHandler}
       type={determineType()}
     >
@@ -47,4 +49,9 @@ interface ButtonProperties {
    * Designates the button type.
    */
   type?: ButtonType;
+
+  /**
+   * Designates if the button is disabled or not.
+   */
+  disabled?: boolean;
 }

@@ -34,11 +34,11 @@ export const BaseInput: React.FC<BaseProperties> = ({
   };
 
   return (
-    <div className="field">
+    <div className="mb-3">
       <Label id={id} label={label} />
-      <div className="control">
+      <div>
         <input
-          className="input"
+          className="form-control"
           id={id}
           onFocus={updateValue}
           onInput={updateValue}

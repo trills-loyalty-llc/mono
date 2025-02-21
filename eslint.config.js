@@ -67,7 +67,7 @@ export default tseslint.config(
       "@typescript-eslint/explicit-function-return-type": "error",
       "@typescript-eslint/member-ordering": "error",
       "no-magic-numbers": "off",
-      "@typescript-eslint/no-magic-numbers": "error",
+      "@typescript-eslint/no-magic-numbers": ["error", { ignoreEnums: true }],
     },
     settings: { react: { version: "detect" } },
   },
