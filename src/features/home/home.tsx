@@ -6,6 +6,7 @@ import {
   DateInput,
   Columns,
 } from "../../common";
+import { ApplicationStatusContainer } from "../application-status/application-status-container";
 
 export const Home: React.FC = () => {
   const name = useText();
@@ -20,6 +21,7 @@ export const Home: React.FC = () => {
           <DateInput label="Date" useInput={date} />
         </Form>
       </Columns>
+      <ApplicationStatusContainer />
     </>
   );
 };

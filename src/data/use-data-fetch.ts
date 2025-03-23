@@ -32,9 +32,5 @@ export default function useDataFetch<TResponse>(
     void getData();
   }, [callback]);
 
-  return {
-    value,
-    isLoading,
-    error,
-  };
+  return { value, isLoading, error };
 }

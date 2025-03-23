@@ -1,9 +1,11 @@
 import { AxiosRequestConfig } from "axios";
+import { Api } from "./api-client";
 
-export default function dataClient(): AxiosRequestConfig {
+export default function dataClient(): Api<void> {
   const config: AxiosRequestConfig = {
-    baseURL: "",
+    baseURL: import.meta.env.VITE_API_URI,
+    timeout: 10000,
   };
 
-  return config;
+  return new Api(config);
 }
