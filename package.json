@@ -13,7 +13,7 @@
     "format": "npx prettier . --write",
     "prepare": "npx husky",
     "cypress": "npx cypress open",
-    "swagger": "npx swagger-typescript-api -p ./swagger/swagger.json -o ./src/data -n api-client.ts --axios",
+    "swagger": "npx swagger-typescript-api generate -p ./swagger/swagger.json -o ./src/data -n api-client.ts --axios",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook"
@@ -71,7 +71,7 @@
     "storybook": "^8.4.7",
     "stylelint": "^16.12.0",
     "stylelint-config-standard-scss": "^14.0.0",
-    "typescript": "^5.8.2",
+    "typescript": "^5.7.0",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5",
     "vitest": "^3.0.8"
