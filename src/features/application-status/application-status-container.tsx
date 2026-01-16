@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import {
   dataClient,
   defaultHealthCheckResponse,
@@ -9,7 +8,7 @@ import { ApplicationStatusIndex } from "./application-status-index";
 export const ApplicationStatusContainer: React.FC = () => {
   const data = useDataFetch(
     defaultHealthCheckResponse,
-    useCallback(dataClient().healthCheck.healthCheck, []),
+    dataClient().health.healthCheck,
   );
 
   return <ApplicationStatusIndex data={data.value} />;

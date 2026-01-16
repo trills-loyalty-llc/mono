@@ -9,14 +9,11 @@ export default function useDataFetch<TResponse>(
   callback: () => Promise<AxiosResponse<TResponse, void>>,
 ): UseDataFetchProperties<TResponse> {
   const [value, setValue] = useState<TResponse>(defaultValue);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<ErrorResponse>(defaultError);
 
   useEffect(() => {
     const getData = async (): Promise<void> => {
       try {
-        setIsLoading(true);
-
         const result = await callback();
 
         if (result.status === StatusCodes.Ok.valueOf()) {
@@ -24,13 +21,13 @@ export default function useDataFetch<TResponse>(
         } else {
           setError(result.data as ErrorResponse);
         }
-      } finally {
-        setIsLoading(false);
+      } catch (error: unknown) {
+        console.log(error);
       }
     };
 
     void getData();
   }, [callback]);
 
-  return { value, isLoading, error };
+  return { value, error };
 }

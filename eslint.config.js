@@ -21,13 +21,14 @@ export default tseslint.config(
       "cypress.config.ts",
       ".storybook/**",
       "src/vite-env.d.ts",
+      "src/data/api-client.ts",
     ],
   },
   {
     extends: [
       js.configs.recommended,
       ...tseslint.configs.strictTypeChecked,
-      unicorn.configs["flat/recommended"],
+      unicorn.configs["recommended"],
       sonar.configs.recommended,
       promise.configs["flat/recommended"],
       compat.configs["flat/recommended"],
