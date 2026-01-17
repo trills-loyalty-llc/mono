@@ -1,8 +1,7 @@
-import { AxiosResponse } from "axios";
-import UseDataFetchProperties from "./use-data-fetch-properties";
+import type { AxiosResponse } from "axios";
+import type UseDataFetchProperties from "./use-data-fetch-properties";
 import { useEffect, useState } from "react";
-import { StatusCodes } from "./status-codes";
-import { defaultError, ErrorResponse } from "./error-response";
+import { defaultError, type ErrorResponse } from "./error-response";
 
 export default function useDataFetch<TResponse>(
   defaultValue: TResponse,
@@ -16,12 +15,9 @@ export default function useDataFetch<TResponse>(
       try {
         const result = await callback();
 
-        if (result.status === StatusCodes.Ok.valueOf()) {
-          setValue(result.data);
-        } else {
-          setError(result.data as ErrorResponse);
-        }
+        setValue(result.data);
       } catch (error: unknown) {
+        setError(defaultError);
         console.log(error);
       }
     };

@@ -1,4 +1,4 @@
-import { RequiredChildrenProperties } from "../../";
+import type { RequiredChildrenProperties } from "../../";
 
 /**
  * A basic element to center content on the viewport.

@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 import { Api } from "./api-client";
 
 export default function dataClient(): Api<void> {

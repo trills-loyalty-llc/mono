@@ -1,6 +1,6 @@
 import { useId } from "react";
 import { Label } from "../label/label";
-import BaseProperties from "./base-properties";
+import type BaseProperties from "./base-properties";
 
 export const BaseInput: React.FC<BaseProperties> = ({
   label,
