@@ -1,5 +1,5 @@
 import { BaseInput } from "../../base/base-input";
-import DerivedProperties from "../interfaces/derived-properties";
+import type DerivedProperties from "../interfaces/derived-properties";
 
 export const TextInput: React.FC<DerivedProperties> = ({
   label,

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UseInputProperties from "./use-input-properties";
+import type UseInputProperties from "./use-input-properties";
 
 export default function useInput<InputType>(
   defaultInput: InputType,

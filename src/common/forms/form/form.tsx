@@ -1,7 +1,7 @@
 import { Button } from "../../elements/button/button";
 import { ButtonType } from "../../elements/button/button-type";
-import { RequiredChildrenProperties } from "../../interfaces/required-children";
-import Validation from "../hooks/validation";
+import type { RequiredChildrenProperties } from "../../interfaces/required-children";
+import type Validation from "../hooks/validation";
 
 export const Form: React.FC<FormProperties> = ({
   children,

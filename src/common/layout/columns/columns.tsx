@@ -1,5 +1,5 @@
 import React from "react";
-import { RequiredChildrenProperties } from "../../interfaces/required-children";
+import type { RequiredChildrenProperties } from "../../interfaces/required-children";
 import { Container } from "../container/container";
 import { ColumnSize } from "./column-size";
 

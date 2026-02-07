@@ -1,6 +1,6 @@
 import { useId } from "react";
 import { Label } from "../label/label";
-import BaseProperties from "./base-properties";
+import type BaseProperties from "./base-properties";
 
 export const BaseInput: React.FC<BaseProperties> = ({
   label,
@@ -27,7 +27,7 @@ export const BaseInput: React.FC<BaseProperties> = ({
     }
   };
 
-  const updateValue = (event: React.FormEvent<HTMLInputElement>): void => {
+  const updateValue = (event: React.InputEvent): void => {
     const inputValue = event.target as HTMLInputElement;
 
     useInput.updateValue(inputValue.value, inputValue.validity.valid);
@@ -40,7 +40,7 @@ export const BaseInput: React.FC<BaseProperties> = ({
         <input
           className="form-control"
           id={id}
-          onFocus={updateValue}
+          //onFocus={updateValue}
           onInput={updateValue}
           type={type}
           value={determineValue()}

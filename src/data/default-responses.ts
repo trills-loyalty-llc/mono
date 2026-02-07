@@ -1,4 +1,4 @@
-import { HealthCheckResponse } from "./api-client";
+import type { HealthCheckResponse } from "./api-client";
 
 export const defaultHealthCheckResponse: HealthCheckResponse = {
   entries: {},

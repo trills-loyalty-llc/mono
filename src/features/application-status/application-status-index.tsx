@@ -1,4 +1,4 @@
-import { HealthCheckResponse } from "../../data/api-client";
+import type { HealthCheckResponse } from "../../data/api-client";
 
 export const ApplicationStatusIndex: React.FC<
   ApplicationStatusIndexProperties

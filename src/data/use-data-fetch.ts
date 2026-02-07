@@ -1,8 +1,8 @@
-import { AxiosResponse } from "axios";
-import UseDataFetchProperties from "./use-data-fetch-properties";
+import type { AxiosResponse } from "axios";
+import type UseDataFetchProperties from "./use-data-fetch-properties";
 import { useEffect, useState } from "react";
 import { StatusCodes } from "./status-codes";
-import { defaultError, ErrorResponse } from "./error-response";
+import { defaultError, type ErrorResponse } from "./error-response";
 
 export default function useDataFetch<TResponse>(
   defaultValue: TResponse,

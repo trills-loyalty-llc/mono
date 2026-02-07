@@ -1,4 +1,4 @@
-import Validation from "./validation";
+import type Validation from "./validation";
 
 export default interface UseInputProperties<InputType> extends Validation {
   dirty: boolean;
