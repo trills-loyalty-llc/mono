@@ -10,8 +10,8 @@ const root = createRoot(document.querySelector("#root") ?? new Element());
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-    children: [{ index: true, element: <Home /> }],
+    Component: App,
+    children: [{ index: true, Component: Home }],
   },
 ]);
 

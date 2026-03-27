@@ -7,7 +7,7 @@ const meta: Meta<typeof Container> = {
 
 export default meta;
 
-export const Primary: StoryObj<typeof meta> = {
+export const Primary: StoryObj = {
   args: {
     children: <p>Hello!</p>,
   },

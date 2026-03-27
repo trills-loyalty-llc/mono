@@ -1,14 +1,14 @@
 import type { AxiosResponse } from "axios";
 import type UseDataFetchProperties from "./use-data-fetch-properties";
 import { useEffect, useState } from "react";
-import { defaultError, type ErrorResponse } from "./error-response";
+import { defaultError } from "./error-response";
 
 export default function useDataFetch<TResponse>(
   defaultValue: TResponse,
   callback: () => Promise<AxiosResponse<TResponse, void>>,
 ): UseDataFetchProperties<TResponse> {
-  const [value, setValue] = useState<TResponse>(defaultValue);
-  const [error, setError] = useState<ErrorResponse>(defaultError);
+  const [value, setValue] = useState(defaultValue);
+  const [error, setError] = useState(defaultError);
 
   useEffect(() => {
     const getData = async (): Promise<void> => {

@@ -5,9 +5,9 @@ export default function useInput<InputType>(
   defaultInput: InputType,
   mappingFunction: (value: string) => InputType,
 ): UseInputProperties<InputType> {
-  const [value, setValue] = useState<InputType>(defaultInput);
-  const [isValid, setValid] = useState<boolean>(false);
-  const [dirty, setDirty] = useState<boolean>(false);
+  const [value, setValue] = useState(defaultInput);
+  const [isValid, setValid] = useState(false);
+  const [dirty, setDirty] = useState(false);
 
   const updateValue = (newValue: string, isValid: boolean): void => {
     setValue(mappingFunction(newValue));

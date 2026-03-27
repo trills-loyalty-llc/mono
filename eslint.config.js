@@ -10,7 +10,6 @@ import testingLibrary from "eslint-plugin-testing-library";
 import jestDom from "eslint-plugin-jest-dom";
 import react from "eslint-plugin-react";
 import sonar from "eslint-plugin-sonarjs";
-import promise from "eslint-plugin-promise";
 import compat from "eslint-plugin-compat";
 
 export default tseslint.config(
@@ -30,12 +29,10 @@ export default tseslint.config(
       ...tseslint.configs.strictTypeChecked,
       unicorn.configs["recommended"],
       sonar.configs.recommended,
-      promise.configs["flat/recommended"],
       compat.configs["flat/recommended"],
       react.configs.flat.recommended,
       react.configs.flat["jsx-runtime"],
       testingLibrary.configs["flat/react"],
-      jestDom.configs["flat/recommended"],
       prettier,
     ],
     files: ["**/*.{ts,tsx}"],
