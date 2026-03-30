@@ -1,6 +1,8 @@
 @charset "utf-8";
 
-$primary: #4ed091;
-$secondary: #b117e8;
+$primary: #6f42c1;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+$bootstrap-icons-font-dir: "bootstrap-icons/font/fonts";
+@import "bootstrap-icons/font/bootstrap-icons";

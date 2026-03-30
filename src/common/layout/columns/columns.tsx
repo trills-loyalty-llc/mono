@@ -9,6 +9,9 @@ export const Columns: React.FC<ColumnsProperties> = ({
 }: ColumnsProperties) => {
   const determineSize = (): string => {
     switch (size) {
+      case ColumnSize.Two: {
+        return "col-2";
+      }
       case ColumnSize.Three: {
         return "col-3";
       }

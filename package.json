@@ -21,6 +21,7 @@
   "dependencies": {
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.13.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-multi-date-picker": "^4.5.2",

@@ -1,29 +1,26 @@
-import {
-  TextInput,
-  useDate,
-  useText,
-  Form,
-  DateInput,
-  Columns,
-} from "../../common";
+import { Columns, ColumnSize } from "../../common";
+import { Article } from "../../common/components/article/article";
 
 export const Home: React.FC = () => {
-  const name = useText();
-  const date = useDate();
-
   return (
     <>
-      <Columns>
-        <h2>Home!</h2>
-        <Form legend="Sign Up" inputs={[name, date]}>
-          <TextInput label="Name" useInput={name} />
-          <DateInput label="Date" useInput={date} />
-        </Form>
+      <Columns size={ColumnSize.Two}>
+        <Article
+          icon="bi-cash-coin"
+          title="What is the cost per attraction at USF?"
+          tags={["Universal", "Orlando", "Cost Breakdown"]}
+        />
+        <Article
+          icon="bi-bar-chart-line-fill"
+          title="Wednesday was the worst day for lines at Disney in a year"
+          tags={["Disney", "Orlando", "Wait Times"]}
+        />
+        <Article
+          icon="bi-person-vcard-fill"
+          title="SeaWorld Orlando 2026 Annual Pass Analysis"
+          tags={["SeaWorld", "Annual Passes", "Cost Breakdown"]}
+        />
       </Columns>
-
-      <div>
-        <input type="date" />
-      </div>
     </>
   );
 };

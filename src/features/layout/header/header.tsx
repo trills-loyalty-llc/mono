@@ -5,7 +5,7 @@ export const Header: React.FC = () => {
     <header>
       <nav className="navbar">
         <Container>
-          <a className="navbar-brand">Trills Loyalty</a>
+          <a className="navbar-brand">Trillonomics</a>
         </Container>
       </nav>
     </header>
