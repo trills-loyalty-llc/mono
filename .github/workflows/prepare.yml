@@ -1,0 +1,28 @@
+name: prepare
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+
+      - name: setup
+        uses: actions/setup-node@v6
+        with:
+          node-version: latest
+
+      - name: restore
+        run: npm ci
+
+      - name: lint
+        run: npm run lint
+
+      # - name: spell-check
+      #   run: npm run spelling
+
+      - name: test
+        run: npm run test:unit

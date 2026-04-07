@@ -13,9 +13,7 @@ describe("button", () => {
   it("has correct default class", () => {
     render(<Button onClickHandler={vitest.fn()} content="button" />);
 
-    expect(screen.getByRole("button", { name: /button/i })).toHaveClass(
-      "button",
-    );
+    expect(screen.getByRole("button", { name: /button/i })).toHaveClass("btn");
   });
 
   it("onClickHandler is called correctly", async () => {

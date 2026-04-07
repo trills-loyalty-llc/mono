@@ -8,7 +8,7 @@
     "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, ",
     ".gitignore": ".gitattributes",
     "eslint*": ".prettier*, prettier*, .editorconfig, .browserslistrc*, .stylelint*",
-    "readme*": "license"
+    "readme*": "license, TODO*"
   },
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",

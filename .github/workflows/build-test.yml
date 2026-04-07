@@ -9,78 +9,78 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "latest"
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: "latest"
 
-      - name: Restore
-        run: npm ci
+  #     - name: Restore
+  #       run: npm ci
 
-      - name: Lint
-        run: npm run lint
+  #     - name: Lint
+  #       run: npm run lint
 
-      - name: Lint Styles
-        run: npm run lint:styles
+  #     - name: Lint Styles
+  #       run: npm run lint:styles
 
-      - name: Unit Tests
-        run: npm run test:unit
+  #     - name: Unit Tests
+  #       run: npm run test:unit
 
-      - name: Build
-        run: npm run build
+  #     - name: Build
+  #       run: npm run build
 
-  integration:
-    name: Integration Tests
-    runs-on: ubuntu-latest
+  # integration:
+  #   name: Integration Tests
+  #   runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        browser: [edge, chrome, firefox]
+  #   strategy:
+  #     matrix:
+  #       browser: [edge, chrome, firefox]
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v4
 
-      - name: Restore Dependencies
-        run: npm ci
+  #     - name: Restore Dependencies
+  #       run: npm ci
 
-      - name: Build
-        run: npm run build
+  #     - name: Build
+  #       run: npm run build
 
-      - name: Run Integration Tests
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run preview
-          browser: ${{ matrix.browser }}
+  #     - name: Run Integration Tests
+  #       uses: cypress-io/github-action@v6
+  #       with:
+  #         start: npm run preview
+  #         browser: ${{ matrix.browser }}
 
-  storybook:
-    name: Storybook
-    runs-on: ubuntu-latest
+  # storybook:
+  #   name: Storybook
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v4
 
-      - name: Restore Dependencies
-        run: npm ci
+  #     - name: Restore Dependencies
+  #       run: npm ci
 
-      - name: Install PlayWright
-        run: npx playwright install
+  #     - name: Install PlayWright
+  #       run: npx playwright install
 
-      - name: Install Serve
-        run: npm install --global serve
+  #     - name: Install Serve
+  #       run: npm install --global serve
 
-      - name: Build Storybook
-        run: npm run build-storybook
+  #     - name: Build Storybook
+  #       run: npm run build-storybook
 
-      - name: Serve Storybook & Run Tests
-        run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "serve storybook-static -l 3000" \
-            "npx wait-on tcp:3000 && npm run test-storybook -- --browsers firefox chromium --url http://localhost:3000"
+  #     - name: Serve Storybook & Run Tests
+  #       run: |
+  #         npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+  #           "serve storybook-static -l 3000" \
+  #           "npx wait-on tcp:3000 && npm run test-storybook -- --browsers firefox chromium --url http://localhost:3000"

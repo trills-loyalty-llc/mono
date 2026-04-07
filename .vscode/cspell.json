@@ -8,6 +8,7 @@
     "storysource",
     "Trillonomics",
     "tseslint",
-    "VITE"
+    "VITE",
+    "wwwroot"
   ]
 }

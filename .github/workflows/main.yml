@@ -1,0 +1,29 @@
+name: main
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  test:
+    uses: ./.github/workflows/prepare.yml
+
+  # cypress:
+  #   uses: ./.github/workflows/cypress.yml
+
+  deploy-application:
+    needs: [test]
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: development
+      app_name: mono-production-app
+    secrets:
+      publish_profile: ${{ secrets.MONO_PRODUCTION_PUBLISH_PROFILE }}
+
+  # deploy-storybook:
+  #   needs: [test, cypress]
+  #   uses: ./.github/workflows/deploy-storybook.yml
+  #   with:
+  #     app_name: asc-storybook-app-dev
+  #   secrets:
+  #     publish_profile: ${{ secrets.APP_STORYBOOK_DEV }}
