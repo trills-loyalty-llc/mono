@@ -14,6 +14,8 @@ export { ColumnSize } from "./layout/columns/column-size";
 // Forms
 export { TextInput } from "./forms/derived/text/text-input";
 export { DateInput } from "./forms/derived/date/date-input";
+export { DescriptionInput } from "./forms/detailed/description/description-input";
+export { IdentifierInput } from "./forms/detailed/identifier/identifier-input";
 export { useText } from "./forms/hooks/use-text";
 export { useDate } from "./forms/hooks/use-date";
 export { Form } from "./forms/form/form";

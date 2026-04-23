@@ -4,6 +4,7 @@ import type BaseProperties from "./base-properties";
 
 export const BaseInput: React.FC<BaseProperties> = ({
   label,
+  pattern,
   type,
   useInput,
 }: BaseProperties) => {
@@ -40,7 +41,9 @@ export const BaseInput: React.FC<BaseProperties> = ({
         <input
           className="form-control"
           id={id}
-          //onFocus={updateValue}
+          name={label}
+          pattern={pattern}
+          placeholder={label}
           onInput={updateValue}
           type={type}
           value={determineValue()}

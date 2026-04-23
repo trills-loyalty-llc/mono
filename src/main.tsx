@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { App } from "./app/app";
 import { Home } from "./features/home/home";
 import "../src/styles/index.scss";
+import { AddOperatorContainer } from "./features/operators/add/add-operator-container";
 
 const root = createRoot(document.querySelector("#root") ?? new Element());
 
@@ -11,7 +12,13 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component: App,
-    children: [{ index: true, Component: Home }],
+    children: [
+      { index: true, Component: Home },
+      {
+        path: "operators",
+        children: [{ path: "add", Component: AddOperatorContainer }],
+      },
+    ],
   },
 ]);
 

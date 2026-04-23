@@ -3,5 +3,6 @@ import type UseInputProperties from "../../hooks/use-input-properties";
 
 export default interface DerivedProperties {
   label: string;
+  pattern?: string;
   useInput: UseInputProperties<InputType>;
 }
