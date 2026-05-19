@@ -7,7 +7,7 @@ import unicorn from "eslint-plugin-unicorn";
 import storybook from "eslint-plugin-storybook";
 import prettier from "eslint-plugin-prettier/recommended";
 import testingLibrary from "eslint-plugin-testing-library";
-import jestDom from "eslint-plugin-jest-dom";
+import jestDom from "eslint-plugin-jest-dom-ya";
 import react from "eslint-plugin-react";
 import sonar from "eslint-plugin-sonarjs";
 import compat from "eslint-plugin-compat";
