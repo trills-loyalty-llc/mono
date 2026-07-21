@@ -1,6 +1,11 @@
 import { useState } from "react";
 import type UseInputProperties from "./use-input-properties";
 
+/**
+ *
+ * @param defaultInput
+ * @param mappingFunction
+ */
 export default function useInput<InputType>(
   defaultInput: InputType,
   mappingFunction: (value: string) => InputType,

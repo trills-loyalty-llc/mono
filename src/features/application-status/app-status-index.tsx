@@ -1,8 +1,8 @@
 import type { HealthCheckResponse } from "../../data/api-client";
 
-export const ApplicationStatusIndex: React.FC<
-  ApplicationStatusIndexProperties
-> = ({ data }: ApplicationStatusIndexProperties) => {
+export const AppStatusIndex: React.FC<AppStatusIndexProperties> = ({
+  data,
+}: AppStatusIndexProperties) => {
   const keys: Array<string> = [];
   for (const key in data.entries) {
     keys.push(key);
@@ -30,6 +30,6 @@ export const ApplicationStatusIndex: React.FC<
   );
 };
 
-interface ApplicationStatusIndexProperties {
+interface AppStatusIndexProperties {
   data: HealthCheckResponse;
 }

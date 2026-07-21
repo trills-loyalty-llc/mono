@@ -2,6 +2,11 @@ import { ButtonType } from "./button-type";
 
 /**
  * A basic button element to allow UI interaction.
+ * @param root0
+ * @param root0.content
+ * @param root0.disabled
+ * @param root0.onClickHandler
+ * @param root0.type
  */
 export const Button: React.FC<ButtonProperties> = ({
   content,

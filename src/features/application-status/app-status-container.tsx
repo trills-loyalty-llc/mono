@@ -3,13 +3,13 @@ import {
   defaultHealthCheckResponse,
   useDataFetch,
 } from "../../data";
-import { ApplicationStatusIndex } from "./application-status-index";
+import { AppStatusIndex } from "./app-status-index";
 
-export const ApplicationStatusContainer: React.FC = () => {
+export const AppStatusContainer: React.FC = () => {
   const data = useDataFetch(
     defaultHealthCheckResponse,
     dataClient().health.healthCheck,
   );
 
-  return <ApplicationStatusIndex data={data.value} />;
+  return <AppStatusIndex data={data.value} />;
 };

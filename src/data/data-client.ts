@@ -1,6 +1,9 @@
 import type { AxiosRequestConfig } from "axios";
 import { Api } from "./api-client";
 
+/**
+ *
+ */
 export default function dataClient(): Api<void> {
   const config: AxiosRequestConfig = {
     baseURL: import.meta.env.VITE_API_URI,

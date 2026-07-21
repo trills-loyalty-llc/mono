@@ -3,6 +3,11 @@ import type UseDataFetchProperties from "./use-data-fetch-properties";
 import { useEffect, useState } from "react";
 import { defaultError } from "./error-response";
 
+/**
+ *
+ * @param defaultValue
+ * @param callback
+ */
 export default function useDataFetch<TResponse>(
   defaultValue: TResponse,
   callback: () => Promise<AxiosResponse<TResponse, void>>,

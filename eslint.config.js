@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import vitest from "@vitest/eslint-plugin";
 import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
@@ -8,12 +9,15 @@ import storybook from "eslint-plugin-storybook";
 import prettier from "eslint-plugin-prettier/recommended";
 import testingLibrary from "eslint-plugin-testing-library";
 import jestDom from "eslint-plugin-jest-dom-ya";
-import react from "eslint-plugin-react";
 import sonar from "eslint-plugin-sonarjs";
 import compat from "eslint-plugin-compat";
+import cypress from "eslint-plugin-cypress";
+import jsdoc from "eslint-plugin-jsdoc";
+import promise from "eslint-plugin-promise";
 
 export default tseslint.config(
   {
+    files: ["**/*.{ts,tsx}"],
     ignores: [
       "dist",
       "vitest.config.ts",
@@ -22,21 +26,18 @@ export default tseslint.config(
       "src/vite-env.d.ts",
       "src/data/api-client.ts",
     ],
-  },
-  {
     extends: [
       js.configs.recommended,
-      ...tseslint.configs.strictTypeChecked,
+      tseslint.configs.strictTypeChecked,
+      promise.configs["flat/recommended"],
       unicorn.configs["recommended"],
       sonar.configs.recommended,
+      jsdoc.configs["flat/recommended"],
       compat.configs["flat/recommended"],
-      react.configs.flat.recommended,
-      react.configs.flat["jsx-runtime"],
       testingLibrary.configs["flat/react"],
       jestDom.configs["flat/recommended"],
       prettier,
     ],
-    files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -48,7 +49,6 @@ export default tseslint.config(
           "./cypress/tsconfig.json",
         ],
         tsconfigRootDir: import.meta.dirname,
-        ...react.configs.flat.recommended.languageOptions,
       },
     },
     plugins: { "react-hooks": reactHooks, "react-refresh": reactRefresh },
@@ -58,7 +58,6 @@ export default tseslint.config(
         "warn",
         { allowConstantExport: true },
       ],
-      "unicorn/prevent-abbreviations": ["error", { allowList: { e2e: true } }],
       "unicorn/consistent-function-scoping": [
         "error",
         { checkArrowFunctions: false },
@@ -67,12 +66,24 @@ export default tseslint.config(
       "@typescript-eslint/member-ordering": "error",
       "@typescript-eslint/no-magic-numbers": ["error", { ignoreEnums: true }],
     },
-    settings: { react: { version: "detect" } },
   },
   {
+    files: ["**/*.spec.*", "**/*.test.*"],
     extends: [
-      ...storybook.configs["flat/recommended"],
-      { files: ["**/*.stories.*"] },
+      vitest.configs.recommended,
+      testingLibrary.configs["flat/react"],
+      jestDom.configs["flat/recommended"],
     ],
+  },
+  {
+    files: ["**/*.stories.*"],
+    extends: [storybook.configs["flat/recommended"]],
+  },
+  {
+    files: ["**/*.cy.*"],
+    extends: [cypress.configs.recommended],
+    rules: {
+      "sonarjs/assertions-in-tests": ["off"],
+    },
   },
 );
