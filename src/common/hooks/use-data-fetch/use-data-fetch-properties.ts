@@ -1,4 +1,4 @@
-import type { ErrorResponse } from "./error-response";
+import type { ErrorResponse } from "../../../data/error-response";
 
 export default interface UseDataFetchProperties<TResponse> {
   value: TResponse;

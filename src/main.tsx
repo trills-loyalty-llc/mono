@@ -5,6 +5,7 @@ import { App } from "./app/app";
 import { Home } from "./features/home/home";
 import "../src/styles/index.scss";
 import { AddOperatorContainer } from "./features/operators/add/add-operator-container";
+import { OperatorIndexContainer } from "./features/operators/index/operator-index.container";
 
 const root = createRoot(document.querySelector("#root") ?? new Element());
 
@@ -16,7 +17,10 @@ const router = createBrowserRouter([
       { index: true, Component: Home },
       {
         path: "operators",
-        children: [{ path: "add", Component: AddOperatorContainer }],
+        children: [
+          { index: true, Component: OperatorIndexContainer },
+          { path: "add", Component: AddOperatorContainer },
+        ],
       },
     ],
   },
